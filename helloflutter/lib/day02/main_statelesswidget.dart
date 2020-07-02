@@ -6,7 +6,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AppHome()
+        home: AppHome()
     );
   }
 }
@@ -15,10 +15,10 @@ class AppHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text("Product List")
-        ),
-        body: AppHomeBody(),
+      appBar: AppBar(
+          title: Text("Product List")
+      ),
+      body: AppHomeBody(),
     );
   }
 }
@@ -47,19 +47,19 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        border: Border.all(width:3)
-      ),
-      child: Column(
-        children: <Widget>[
-          Text(name, style: TextStyle(fontSize:20,color:Colors.orange)),
-          SizedBox(height:8),
-          Text(desc, style: TextStyle(fontSize:20,color:Colors.orange)),
-          SizedBox(height:8),
-          Image.network(imageURL)
-        ],
-      )
+        padding: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+            border: Border.all(width:3)
+        ),
+        child: Column(
+          children: <Widget>[
+            Text(name, style: TextStyle(fontSize:20,color:Colors.orange)),
+            SizedBox(height:8),
+            Text(desc, style: TextStyle(fontSize:20,color:Colors.orange)),
+            SizedBox(height:8),
+            Image.network(imageURL)
+          ],
+        )
     );
   }
 }
