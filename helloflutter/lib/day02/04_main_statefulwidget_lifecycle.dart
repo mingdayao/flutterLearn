@@ -2,31 +2,17 @@ import 'package:flutter/material.dart';
 
 main() => runApp(App());
 
-
 /**
  *
- * stateless -> stateful => alt+enter
- * extract content of build to another new widget -> alt+enter+w
- *
- *
- *
- * by default this method didUpdateWidget wont been invoked
- * parent stateful widget setState() it will reinvoke parent build and will
- * follow steps. remember wont recreate state object. just recreate widget object => call didUpdateWidget => build()  (with existing state object)
- *
- *
- * I/flutter (11851): 01 - AppHomeBody.constructor() invoked....
- * I/flutter (11851): _AppHomeBodyState.didUpdateWidget() invoked....
-   I/flutter (11851): 05 - _AppHomeBodyState.build() invoked....
- *
- *
- *
+    I/flutter (11851): 01 - AppHomeBody.constructor() invoked....
+    I/flutter (11851): 02 - AppHomeBody.createState() invoked....
+    I/flutter (11851): 03 - _AppHomeBodyState.constructor() invoked....
+    I/flutter (11851): 04 - _AppHomeBodyState.initState() invoked....
+    I/flutter (11851): 05 - _AppHomeBodyState.build() invoked....
  *
  *
  *
  */
-
-
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,20 +22,12 @@ class App extends StatelessWidget {
   }
 }
 
-class AppHome extends StatefulWidget {
-  @override
-  _AppHomeState createState() => _AppHomeState();
-}
-
-class _AppHomeState extends State<AppHome> {
+class AppHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Stateful LifeCycle")),
       body: AppHomeBody(),
-      floatingActionButton: RaisedButton(onPressed: () {
-        this.setState(() { });
-      }),
     );
   }
 }
@@ -70,8 +48,6 @@ class AppHomeBody extends StatefulWidget {
 
 class _AppHomeBodyState extends State<AppHomeBody> {
 
-  var count = 0;
-
   _AppHomeBodyState() {
     print("03 - _AppHomeBodyState.constructor() invoked....");
   }
@@ -89,16 +65,7 @@ class _AppHomeBodyState extends State<AppHomeBody> {
   @override
   Widget build(BuildContext context) {
     print("05 - _AppHomeBodyState.build() invoked....");
-    return Column(
-      children: <Widget>[
-        RaisedButton(onPressed: () {
-          this.setState(() {
-            count++;
-          });
-        }),
-        Text("current count $count")
-      ],
-    );
+    return Text("Hello World");
   }
 
   dispose() {
